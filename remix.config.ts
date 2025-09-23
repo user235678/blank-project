@@ -1,0 +1,14 @@
+import { defineConfig } from "@remix-run/dev";
+
+export default defineConfig({
+  future: {
+    v3_fetcherPersist: true,
+    v3_relativeSplatPath: true,
+    v3_throwAbortReason: true,
+    unstable_singleFetch: true,
+  },
+  ignoredRouteFiles: ["**/*.test.*", "**/*.spec.*"],
+  serverModuleFormat: "esm",
+  tailwind: true,
+  postcss: true,
+});

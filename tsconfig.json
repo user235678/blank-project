@@ -1,0 +1,10 @@
+{  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "ES2022"],    "target": "ES2022",
+    "module": "ESNext",    "jsx": "react-jsx",
+    "moduleResolution": "Bundler",    "strict": true,
+    "baseUrl": ".",    "paths": {
+      "~/*": ["app/*"]    },
+    "types": ["@remix-run/node", "@remix-run/react"],    "allowJs": false,
+    "forceConsistentCasingInFileNames": true,    "skipLibCheck": true,
+    "noEmit": true  },
+  "include": ["**
