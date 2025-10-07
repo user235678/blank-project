@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison Essences — Parfums d'exception</title>
+    <meta name="description" content="Boutique de parfums d'exception: best-sellers, nouveautés, et collections exclusives.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ink': '#1a1a1a',
+                        'ivory': '#faf8f5',
+                        'gold': '#d4af37'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    container: {
+                        center: true,
+                        padding: '1rem',
+                        screens: {
+                            sm: '640px',
+                            md: '768px',
+                            lg: '1024px',
+                            xl: '1200px'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-full antialiased bg-ivory text-ink">
+    <!-- Header -->
+    <header class="border-b border-black/5 bg-white/80 backdrop-blur sticky top-0 z-50">
+        <div class="container flex items-center justify-between py-4">
+            <a href="index.html" class="text-xl font-semibold tracking-tight">
+                <span class="font-serif">Maison Essences</span>
+            </a>
+            <nav class="flex items-center gap-6">
+                <a href="boutique.html" class="text-ink/70 hover:text-ink transition-colors">Boutique</a>
+                <a href="panier.html" class="text-ink/70 hover:text-ink transition-colors relative">
+                    Panier
+                    <span id="cart-count" class="hidden absolute -top-2 -right-2 bg-ink text-ivory text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+                <a href="compte.html" class="text-ink/70 hover:text-ink transition-colors">Compte</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container py-8">
+        <div class="space-y-12">
+            <!-- Hero Section -->
+            <section class="rounded-xl border border-black/5 bg-white p-8">
+                <div class="grid gap-8 md:grid-cols-2">
+                    <div class="space-y-4">
+                        <h1 class="font-serif text-3xl sm:text-4xl">Parfums d'exception</h1>
+                        <p class="text-ink/70">
+                            Découvrez notre sélection de fragrances raffinées, conçues avec des matières nobles et un savoir-faire artisanal.
+                        </p>
+                        <div class="flex gap-3">
+                            <a href="boutique.html" class="rounded-md bg-ink px-4 py-2 text-white hover:bg-ink/90 transition-colors">
+                                Explorer la boutique
+                            </a>
+                            <a href="#contact" class="rounded-md border border-ink/20 px-4 py-2 hover:border-ink/40 transition-colors">
+                                Nous contacter
+                            </a>
+                        </div>
+                    </div>
+                    <div class="aspect-[4/3] rounded-lg bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&auto=format&fit=crop&w=1200&ixlib=rb-4.0.3')"></div>
+                </div>
+            </section>
+
+            <!-- Best-sellers Section -->
+            <section class="space-y-6">
+                <div class="flex items-center justify-between">
+                    <h2 class="font-serif text-2xl">Best-sellers</h2>
+                    <a href="boutique.html" class="text-sm text-ink/70 hover:text-ink">Voir tout</a>
+                </div>
+                <div id="bestsellers-grid" class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+                    <!-- Products will be inserted here by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-black/5 bg-white mt-16">
+        <div class="container py-8">
+            <div class="grid gap-8 md:grid-cols-3">
+                <div>
+                    <h3 class="font-serif text-lg mb-3">Maison Essences</h3>
+                    <p class="text-sm text-ink/70">Parfums d'exception depuis 2024</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="boutique.html" class="text-ink/70 hover:text-ink">Boutique</a></li>
+                        <li><a href="#" class="text-ink/70 hover:text-ink">À propos</a></li>
+                        <li><a href="#contact" class="text-ink/70 hover:text-ink">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Informations</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-ink/70 hover:text-ink">Livraison</a></li>
+                        <li><a href="#" class="text-ink/70 hover:text-ink">Retours</a></li>
+                        <li><a href="#" class="text-ink/70 hover:text-ink">CGV</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Load bestsellers on homepage
+        document.addEventListener('DOMContentLoaded', () => {
+            const bestsellers = products.filter(p => p.badge === 'Best-seller').slice(0, 3);
+            const grid = document.getElementById('bestsellers-grid');
+            grid.innerHTML = bestsellers.map(product => createProductCard(product)).join('');
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier — Maison Essences</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ink': '#1a1a1a',
+                        'ivory': '#faf8f5',
+                        'gold': '#d4af37'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    container: {
+                        center: true,
+                        padding: '1rem',
+                        screens: {
+                            sm: '640px',
+                            md: '768px',
+                            lg: '1024px',
+                            xl: '1200px'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-full antialiased bg-ivory text-ink">
+    <!-- Header -->
+    <header class="border-b border-black/5 bg-white/80 backdrop-blur sticky top-0 z-50">
+        <div class="container flex items-center justify-between py-4">
+            <a href="index.html" class="text-xl font-semibold tracking-tight">
+                <span class="font-serif">Maison Essences</span>
+            </a>
+            <nav class="flex items-center gap-6">
+                <a href="boutique.html" class="text-ink/70 hover:text-ink transition-colors">Boutique</a>
+                <a href="panier.html" class="text-ink transition-colors relative">
+                    Panier
+                    <span id="cart-count" class="hidden absolute -top-2 -right-2 bg-ink text-ivory text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+                <a href="compte.html" class="text-ink/70 hover:text-ink transition-colors">Compte</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container py-8">
+        <h1 class="font-serif text-2xl mb-8">Votre panier</h1>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Cart Items -->
+            <div class="lg:col-span-2 space-y-4">
+                <div id="cart-items" class="space-y-4">
+                    <!-- Cart items will be inserted here -->
+                </div>
+                
+                <div id="empty-cart" class="hidden bg-white rounded-lg border border-black/5 p-8 text-center">
+                    <p class="text-ink/60 mb-4">Votre panier est vide</p>
+                    <a href="boutique.html" class="inline-block rounded-md bg-ink px-6 py-2 text-white hover:bg-ink/90 transition-colors">
+                        Découvrir nos produits
+                    </a>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div id="order-summary" class="hidden lg:col-span-1">
+                <div class="bg-white rounded-lg border border-black/5 p-6 sticky top-24 space-y-4">
+                    <h2 class="font-serif text-xl">Récapitulatif</h2>
+                    
+                    <div class="border-t border-black/5 pt-4 space-y-2">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-ink/70">Sous-total</span>
+                            <span id="subtotal">0.00 €</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-ink/70">Livraison</span>
+                            <span class="text-green-600">Gratuite</span>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t border-black/5 pt-4">
+                        <div class="flex justify-between font-semibold text-lg">
+                            <span>Total</span>
+                            <span id="total">0.00 €</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full rounded-md bg-ink px-6 py-3 text-white hover:bg-ink/90 transition-colors font-medium">
+                        Commander
+                    </button>
+                    
+                    <a href="boutique.html" class="block text-center text-sm text-ink/70 hover:text-ink">
+                        Continuer mes achats
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-black/5 bg-white mt-16">
+        <div class="container py-8">
+            <div class="grid gap-8 md:grid-cols-3">
+                <div>
+                    <h3 class="font-serif text-lg mb-3">Maison Essences</h3>
+                    <p class="text-sm text-ink/70">Parfums d'exception depuis 2024</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="boutique.html" class="text-ink/70 hover:text-ink">Boutique</a></li>
+                        <li><a href="#" class="text-ink/70 hover:text-ink">À propos</a></li>
+                        <li><a href="#contact" class="text-ink/70 hover:text-ink">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Informations</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-ink/70 hover:text-ink">Livraison</a></li>
+                        <li><a href="#" class="text-ink/70 hover:text-ink">Retours</a></li>
+                        <li><a href="#" class="text-ink/70 hover:text-ink">CGV</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        function renderCart() {
+            const cart = getCart();
+            const cartItemsContainer = document.getElementById('cart-items');
+            const emptyCart = document.getElementById('empty-cart');
+            const orderSummary = document.getElementById('order-summary');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.classList.add('hidden');
+                emptyCart.classList.remove('hidden');
+                orderSummary.classList.add('hidden');
+                return;
+            }
+            
+            cartItemsContainer.classList.remove('hidden');
+            emptyCart.classList.add('hidden');
+            orderSummary.classList.remove('hidden');
+            
+            cartItemsContainer.innerHTML = cart.map(item => {
+                const itemTotal = item.price * item.quantity;
+                const imageHtml = item.image
+                    ? `<img src="${item.image}" alt="${item.name}" class="h-full w-full object-cover">`
+                    : `<div class="flex h-full w-full items-center justify-center text-ink/30 bg-ivory">Image</div>`;
+                
+                return `
+                    <div class="bg-white rounded-lg border border-black/5 p-4">
+                        <div class="flex gap-4">
+                            <div class="w-24 h-24 flex-shrink-0 rounded overflow-hidden bg-ivory">
+                                ${imageHtml}
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-start gap-4">
+                                    <div>
+                                        <p class="text-sm text-ink/60">${item.brand}</p>
+                                        <h3 class="font-medium">${item.name}</h3>
+                                        <p class="text-sm text-ink/70 mt-1">${item.price.toFixed(2)} €</p>
+                                    </div>
+                                    <button 
+                                        onclick="handleRemoveItem('${item.slug}')"
+                                        class="text-ink/40 hover:text-ink transition-colors"
+                                        title="Supprimer"
+                                    >
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="flex items-center justify-between mt-3">
+                                    <div class="flex items-center gap-2">
+                                        <button 
+                                            onclick="handleUpdateQuantity('${item.slug}', ${item.quantity - 1})"
+                                            class="w-8 h-8 rounded border border-ink/20 hover:border-ink/40 flex items-center justify-center transition-colors"
+                                        >
+                                            -
+                                        </button>
+                                        <span class="w-12 text-center">${item.quantity}</span>
+                                        <button 
+                                            onclick="handleUpdateQuantity('${item.slug}', ${item.quantity + 1})"
+                                            class="w-8 h-8 rounded border border-ink/20 hover:border-ink/40 flex items-center justify-center transition-colors"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                    <p class="font-semibold">${itemTotal.toFixed(2)} €</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const total = getCartTotal();
+            document.getElementById('subtotal').textContent = `${total.toFixed(2)} €`;
+            document.getElementById('total').textContent = `${total.toFixed(2)} €`;
+        }
+
+        function handleUpdateQuantity(slug, quantity) {
+            updateCartQuantity(slug, quantity);
+            renderCart();
+        }
+
+        function handleRemoveItem(slug) {
+            removeFromCart(slug);
+            renderCart();
+            showToast('Produit retiré du panier');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>

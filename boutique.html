@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique — Maison Essences</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ink': '#1a1a1a',
+                        'ivory': '#faf8f5',
+                        'gold': '#d4af37'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    container: {
+                        center: true,
+                        padding: '1rem',
+                        screens: {
+                            sm: '640px',
+                            md: '768px',
+                            lg: '1024px',
+                            xl: '1200px'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-full antialiased bg-ivory text-ink">
+    <!-- Header -->
+    <header class="border-b border-black/5 bg-white/80 backdrop-blur sticky top-0 z-50">
+        <div class="container flex items-center justify-between py-4">
+            <a href="index.html" class="text-xl font-semibold tracking-tight">
+                <span class="font-serif">Maison Essences</span>
+            </a>
+            <nav class="flex items-center gap-6">
+                <a href="boutique.html" class="text-ink transition-colors">Boutique</a>
+                <a href="panier.html" class="text-ink/70 hover:text-ink transition-colors relative">
+                    Panier
+                    <span id="cart-count" class="hidden absolute -top-2 -right-2 bg-ink text-ivory text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+                <a href="compte.html" class="text-ink/70 hover:text-ink transition-colors">Compte</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container py-8">
+        <div class="space-y-8">
+            <!-- Header & Filters -->
+            <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+                <div>
+                    <h1 class="font-serif text-2xl">Boutique</h1>
+                    <p class="text-ink/70">Parcourez nos collections par famille olfactive.</p>
+                </div>
+                <div class="flex flex-col gap-3 sm:flex-row">
+                    <input
+                        type="search"
+                        id="search-input"
+                        placeholder="Recherche (nom, marque)…"
+                        class="rounded-md border border-ink/20 bg-white px-3 py-2 outline-none focus:border-ink/40"
+                    />
+                    <select
+                        id="family-select"
+                        class="rounded-md border border-ink/20 bg-white px-3 py-2 outline-none focus:border-ink/40"
+                    >
+                        <option value="">Toutes les familles</option>
+                        <option value="Oriental">Oriental</option>
+                        <option value="Floral">Floral</option>
+                        <option value="Boisé">Boisé</option>
+                        <option value="Agrumes">Agrumes</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="products-grid" class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+                <!-- Products will be inserted here by JavaScript -->
+            </div>
+            
+            <!-- No results message -->
+            <div id="no-results" class="hidden text-ink/60">
+                Aucun produit ne correspond à votre recherche.
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-black/5 bg-white mt-16">
+        <div class="container py-8">
+            <div class="grid gap-8 md:grid-cols-3">
+                <div>
+                    <h3 class="font-serif text-lg mb-3">Maison Essences</h3>
+                    <p class="text-sm text-ink/70">Parfums d'exception depuis 2024</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="boutique.html" class="text-ink/70 hover:text-ink">Boutique</a></li>
+                        <li><a href="#" class="text-ink/70 hover:text-ink">À propos</a></li>
+                        <li><a href="#contact" class="text-ink/70 hover:text-ink">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Informations</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-ink/70 hover:text-ink">Livraison</a></li>
+                        <li><a href="#" class="text-ink/70 hover:text-ink">Retours</a></li>
+                        <li><a href="#" class="text-ink/70 hover:text-ink">CGV</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        let currentProducts = [...products];
+
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            const noResults = document.getElementById('no-results');
+            
+            if (currentProducts.length === 0) {
+                grid.innerHTML = '';
+                noResults.classList.remove('hidden');
+            } else {
+                grid.innerHTML = currentProducts.map(product => createProductCard(product)).join('');
+                noResults.classList.add('hidden');
+            }
+        }
+
+        function filterProducts() {
+            const searchQuery = document.getElementById('search-input').value.toLowerCase();
+            const selectedFamily = document.getElementById('family-select').value;
+            
+            currentProducts = products.filter(product => {
+                const matchesSearch = !searchQuery || 
+                    product.name.toLowerCase().includes(searchQuery) || 
+                    product.brand.toLowerCase().includes(searchQuery);
+                
+                const matchesFamily = !selectedFamily || product.family === selectedFamily;
+                
+                return matchesSearch && matchesFamily;
+            });
+            
+            renderProducts();
+        }
+
+        // Event listeners
+        document.getElementById('search-input').addEventListener('input', filterProducts);
+        document.getElementById('family-select').addEventListener('change', filterProducts);
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>
