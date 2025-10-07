@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Netflix – Clone</title>
+    <meta name="description" content="Clone de la page d'accueil Netflix réalisé en HTML/CSS" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <div class="brand" aria-label="Netflix">
+          <span class="logo-word">NETFLIX</span>
+        </div>
+        <div class="nav-actions">
+          <button class="btn btn-secondary">S'identifier</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <h1 class="hero-title">Films et séries en illimité, et bien plus.</h1>
+        <p class="hero-subtitle">Où que vous soyez. Annulez à tout moment.</p>
+        <form class="signup-form" action="#" method="post" onsubmit="return false;">
+          <div class="input-group">
+            <input type="email" name="email" placeholder="Adresse e‑mail" aria-label="Adresse e‑mail" required />
+            <button type="submit" class="btn btn-primary">Commencer</button>
+          </div>
+          <small class="form-hint">Prêt à regarder ? Saisissez votre adresse e‑mail pour créer ou redémarrer votre abonnement.</small>
+        </form>
+      </div>
+    </section>
+
+    <main class="content">
+      <div class="container">
+        <section class="row" aria-labelledby="row-trending">
+          <h2 id="row-trending" class="section-title">Tendances actuelles</h2>
+          <div class="card-row">
+            <article class="card" aria-label="Titre 1"><img src="https://picsum.photos/seed/m1/400/600" alt="Affiche du titre 1" loading="lazy" /></article>
+            <article class="card" aria-label="Titre 2"><img src="https://picsum.photos/seed/m2/400/600" alt="Affiche du titre 2" loading="lazy" /></article>
+            <article class="card" aria-label="Titre 3"><img src="https://picsum.photos/seed/m3/400/600" alt="Affiche du titre 3" loading="lazy" /></article>
+            <article class="card" aria-label="Titre 4"><img src="https://picsum.photos/seed/m4/400/600" alt="Affiche du titre 4" loading="lazy" /></article>
+            <article class="card" aria-label="Titre 5"><img src="https://picsum.photos/seed/m5/400/600" alt="Affiche du titre 5" loading="lazy" /></article>
+            <article class="card" aria-label="Titre 6"><img src="https://picsum.photos/seed/m6/400/600" alt="Affiche du titre 6" loading="lazy" /></article>
+            <article class="card" aria-label="Titre 7"><img src="https://picsum.photos/seed/m7/400/600" alt="Affiche du titre 7" loading="lazy" /></article>
+            <article class="card" aria-label="Titre 8"><img src="https://picsum.photos/seed/m8/400/600" alt="Affiche du titre 8" loading="lazy" /></article>
+            <article class="card" aria-label="Titre 9"><img src="https://picsum.photos/seed/m9/400/600" alt="Affiche du titre 9" loading="lazy" /></article>
+            <article class="card" aria-label="Titre 10"><img src="https://picsum.photos/seed/m10/400/600" alt="Affiche du titre 10" loading="lazy" /></article>
+            <article class="card" aria-label="Titre 11"><img src="https://picsum.photos/seed/m11/400/600" alt="Affiche du titre 11" loading="lazy" /></article>
+            <article class="card" aria-label="Titre 12"><img src="https://picsum.photos/seed/m12/400/600" alt="Affiche du titre 12" loading="lazy" /></article>
+          </div>
+        </section>
+
+        <section class="row" aria-labelledby="row-popular">
+          <h2 id="row-popular" class="section-title">Populaire sur Netflix</h2>
+          <div class="card-row">
+            <article class="card" aria-label="Populaire 1"><img src="https://picsum.photos/seed/p1/400/600" alt="Affiche populaire 1" loading="lazy" /></article>
+            <article class="card" aria-label="Populaire 2"><img src="https://picsum.photos/seed/p2/400/600" alt="Affiche populaire 2" loading="lazy" /></article>
+            <article class="card" aria-label="Populaire 3"><img src="https://picsum.photos/seed/p3/400/600" alt="Affiche populaire 3" loading="lazy" /></article>
+            <article class="card" aria-label="Populaire 4"><img src="https://picsum.photos/seed/p4/400/600" alt="Affiche populaire 4" loading="lazy" /></article>
+            <article class="card" aria-label="Populaire 5"><img src="https://picsum.photos/seed/p5/400/600" alt="Affiche populaire 5" loading="lazy" /></article>
+            <article class="card" aria-label="Populaire 6"><img src="https://picsum.photos/seed/p6/400/600" alt="Affiche populaire 6" loading="lazy" /></article>
+            <article class="card" aria-label="Populaire 7"><img src="https://picsum.photos/seed/p7/400/600" alt="Affiche populaire 7" loading="lazy" /></article>
+            <article class="card" aria-label="Populaire 8"><img src="https://picsum.photos/seed/p8/400/600" alt="Affiche populaire 8" loading="lazy" /></article>
+            <article class="card" aria-label="Populaire 9"><img src="https://picsum.photos/seed/p9/400/600" alt="Affiche populaire 9" loading="lazy" /></article>
+            <article class="card" aria-label="Populaire 10"><img src="https://picsum.photos/seed/p10/400/600" alt="Affiche populaire 10" loading="lazy" /></article>
+            <article class="card" aria-label="Populaire 11"><img src="https://picsum.photos/seed/p11/400/600" alt="Affiche populaire 11" loading="lazy" /></article>
+            <article class="card" aria-label="Populaire 12"><img src="https://picsum.photos/seed/p12/400/600" alt="Affiche populaire 12" loading="lazy" /></article>
+          </div>
+        </section>
+
+        <section class="row" aria-labelledby="row-reco">
+          <h2 id="row-reco" class="section-title">Recommandé pour vous</h2>
+          <div class="card-row">
+            <article class="card" aria-label="Recommandé 1"><img src="https://picsum.photos/seed/r1/400/600" alt="Affiche recommandée 1" loading="lazy" /></article>
+            <article class="card" aria-label="Recommandé 2"><img src="https://picsum.photos/seed/r2/400/600" alt="Affiche recommandée 2" loading="lazy" /></article>
+            <article class="card" aria-label="Recommandé 3"><img src="https://picsum.photos/seed/r3/400/600" alt="Affiche recommandée 3" loading="lazy" /></article>
+            <article class="card" aria-label="Recommandé 4"><img src="https://picsum.photos/seed/r4/400/600" alt="Affiche recommandée 4" loading="lazy" /></article>
+            <article class="card" aria-label="Recommandé 5"><img src="https://picsum.photos/seed/r5/400/600" alt="Affiche recommandée 5" loading="lazy" /></article>
+            <article class="card" aria-label="Recommandé 6"><img src="https://picsum.photos/seed/r6/400/600" alt="Affiche recommandée 6" loading="lazy" /></article>
+            <article class="card" aria-label="Recommandé 7"><img src="https://picsum.photos/seed/r7/400/600" alt="Affiche recommandée 7" loading="lazy" /></article>
+            <article class="card" aria-label="Recommandé 8"><img src="https://picsum.photos/seed/r8/400/600" alt="Affiche recommandée 8" loading="lazy" /></article>
+            <article class="card" aria-label="Recommandé 9"><img src="https://picsum.photos/seed/r9/400/600" alt="Affiche recommandée 9" loading="lazy" /></article>
+            <article class="card" aria-label="Recommandé 10"><img src="https://picsum.photos/seed/r10/400/600" alt="Affiche recommandée 10" loading="lazy" /></article>
+            <article class="card" aria-label="Recommandé 11"><img src="https://picsum.photos/seed/r11/400/600" alt="Affiche recommandée 11" loading="lazy" /></article>
+            <article class="card" aria-label="Recommandé 12"><img src="https://picsum.photos/seed/r12/400/600" alt="Affiche recommandée 12" loading="lazy" /></article>
+          </div>
+        </section>
+
+        <section class="row" aria-labelledby="row-top10">
+          <h2 id="row-top10" class="section-title">Top 10 en France aujourd’hui</h2>
+          <div class="card-row">
+            <article class="card" aria-label="Top 1"><span class="card-badge">1</span><img src="https://picsum.photos/seed/t1/400/600" alt="Affiche top 1" loading="lazy" /></article>
+            <article class="card" aria-label="Top 2"><span class="card-badge">2</span><img src="https://picsum.photos/seed/t2/400/600" alt="Affiche top 2" loading="lazy" /></article>
+            <article class="card" aria-label="Top 3"><span class="card-badge">3</span><img src="https://picsum.photos/seed/t3/400/600" alt="Affiche top 3" loading="lazy" /></article>
+            <article class="card" aria-label="Top 4"><span class="card-badge">4</span><img src="https://picsum.photos/seed/t4/400/600" alt="Affiche top 4" loading="lazy" /></article>
+            <article class="card" aria-label="Top 5"><span class="card-badge">5</span><img src="https://picsum.photos/seed/t5/400/600" alt="Affiche top 5" loading="lazy" /></article>
+            <article class="card" aria-label="Top 6"><span class="card-badge">6</span><img src="https://picsum.photos/seed/t6/400/600" alt="Affiche top 6" loading="lazy" /></article>
+            <article class="card" aria-label="Top 7"><span class="card-badge">7</span><img src="https://picsum.photos/seed/t7/400/600" alt="Affiche top 7" loading="lazy" /></article>
+            <article class="card" aria-label="Top 8"><span class="card-badge">8</span><img src="https://picsum.photos/seed/t8/400/600" alt="Affiche top 8" loading="lazy" /></article>
+            <article class="card" aria-label="Top 9"><span class="card-badge">9</span><img src="https://picsum.photos/seed/t9/400/600" alt="Affiche top 9" loading="lazy" /></article>
+            <article class="card" aria-label="Top 10"><span class="card-badge">10</span><img src="https://picsum.photos/seed/t10/400/600" alt="Affiche top 10" loading="lazy" /></article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="footer-note">Des questions ? Appelez le 0805‑543‑064</p>
+        <div class="footer-grid" role="list">
+          <a href="#" role="listitem">FAQ</a>
+          <a href="#" role="listitem">Centre d'aide</a>
+          <a href="#" role="listitem">Compte</a>
+          <a href="#" role="listitem">Presse</a>
+          <a href="#" role="listitem">Relations investisseurs</a>
+          <a href="#" role="listitem">Recrutement</a>
+          <a href="#" role="listitem">Modes de lecture</a>
+          <a href="#" role="listitem">Conditions d'utilisation</a>
+          <a href="#" role="listitem">Confidentialité</a>
+          <a href="#" role="listitem">Préférences de cookies</a>
+          <a href="#" role="listitem">Mentions légales</a>
+          <a href="#" role="listitem">Nous contacter</a>
+          <a href="#" role="listitem">Test de vitesse</a>
+          <a href="#" role="listitem">Garantie légale</a>
+          <a href="#" role="listitem">Programmes originaux Netflix</a>
+          <a href="#" role="listitem">Accessibilité</a>
+        </div>
+        <div class="lang-select">
+          <select aria-label="Sélectionner la langue">
+            <option value="fr" selected>Français</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+        <p class="footer-note" style="margin-top: 16px;">Netflix France</p>
+      </div>
+    </footer>
+  </body>
+</html>
