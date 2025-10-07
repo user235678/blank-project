@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: oklch(51.01% 0.274 276.56);
+}
+
+/* Styles additionnels */
+.btn-brand { @apply bg-brand text-white px-4 py-2 rounded; }
