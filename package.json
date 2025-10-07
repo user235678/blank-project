@@ -1,0 +1,17 @@
+{
+  "name": "boutique-parfums-vanilla",
+  "version": "1.0.0",
+  "description": "Boutique de parfums d'exception - Version Vanilla JS + Tailwind CSS",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "perfume",
+    "ecommerce",
+    "vanilla-js",
+    "tailwind"
+  ],
+  "author": "",
+  "license": "MIT"
+}

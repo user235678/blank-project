@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produit — Maison Essences</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ink': '#1a1a1a',
+                        'ivory': '#faf8f5',
+                        'gold': '#d4af37'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    container: {
+                        center: true,
+                        padding: '1rem',
+                        screens: {
+                            sm: '640px',
+                            md: '768px',
+                            lg: '1024px',
+                            xl: '1200px'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-full antialiased bg-ivory text-ink">
+    <!-- Header -->
+    <header class="border-b border-black/5 bg-white/80 backdrop-blur sticky top-0 z-50">
+        <div class="container flex items-center justify-between py-4">
+            <a href="index.html" class="text-xl font-semibold tracking-tight">
+                <span class="font-serif">Maison Essences</span>
+            </a>
+            <nav class="flex items-center gap-6">
+                <a href="boutique.html" class="text-ink/70 hover:text-ink transition-colors">Boutique</a>
+                <a href="panier.html" class="text-ink/70 hover:text-ink transition-colors relative">
+                    Panier
+                    <span id="cart-count" class="hidden absolute -top-2 -right-2 bg-ink text-ivory text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </a>
+                <a href="compte.html" class="text-ink/70 hover:text-ink transition-colors">Compte</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container py-8">
+        <div class="mb-6">
+            <a href="boutique.html" class="text-sm text-ink/70 hover:text-ink inline-flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Retour à la boutique
+            </a>
+        </div>
+
+        <div id="product-detail" class="bg-white rounded-xl border border-black/5 overflow-hidden">
+            <!-- Product content will be inserted here -->
+        </div>
+
+        <div id="product-not-found" class="hidden text-center py-12">
+            <p class="text-ink/60 mb-4">Produit introuvable</p>
+            <a href="boutique.html" class="text-ink hover:underline">Retour à la boutique</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-black/5 bg-white mt-16">
+        <div class="container py-8">
+            <div class="grid gap-8 md:grid-cols-3">
+                <div>
+                    <h3 class="font-serif text-lg mb-3">Maison Essences</h3>
+                    <p class="text-sm text-ink/70">Parfums d'exception depuis 2024</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="boutique.html" class="text-ink/70 hover:text-ink">Boutique</a></li>
+                        <li><a href="#" class="text-ink/70 hover:text-ink">À propos</a></li>
+                        <li><a href="#contact" class="text-ink/70 hover:text-ink">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Informations</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-ink/70 hover:text-ink">Livraison</a></li>
+                        <li><a href="#" class="text-ink/70 hover:text-ink">Retours</a></li>
+                        <li><a href="#" class="text-ink/70 hover:text-ink">CGV</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slug = getUrlParam('slug');
+            const product = getProductBySlug(slug);
+            
+            const detailContainer = document.getElementById('product-detail');
+            const notFoundContainer = document.getElementById('product-not-found');
+            
+            if (!product) {
+                detailContainer.classList.add('hidden');
+                notFoundContainer.classList.remove('hidden');
+                return;
+            }
+
+            // Update page title
+            document.title = `${product.name} — Maison Essences`;
+            
+            const badgeClass = product.badge === 'Nouveau' 
+                ? 'bg-ink text-ivory' 
+                : 'bg-gold text-white';
+            
+            const badgeHtml = product.badge 
+                ? `<span class="inline-block rounded-full px-3 py-1 text-xs font-medium ${badgeClass} mb-4">${product.badge}</span>`
+                : '';
+            
+            const imageHtml = product.image
+                ? `<img src="${product.image}" alt="${product.name}" class="h-full w-full object-cover">`
+                : `<div class="flex h-full w-full items-center justify-center text-ink/30 bg-ivory">Image</div>`;
+
+            detailContainer.innerHTML = `
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="aspect-[4/5] bg-ivory">
+                        ${imageHtml}
+                    </div>
+                    <div class="p-8 space-y-6">
+                        ${badgeHtml}
+                        <div>
+                            <p class="text-sm text-ink/60 mb-1">${product.brand}</p>
+                            <h1 class="font-serif text-3xl mb-2">${product.name}</h1>
+                            <p class="text-2xl font-semibold">${product.price.toFixed(2)} €</p>
+                        </div>
+                        
+                        <p class="text-ink/70">${product.description}</p>
+                        
+                        <div class="border-t border-black/5 pt-6 space-y-3">
+                            <h3 class="font-semibold">Notes olfactives</h3>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex gap-3">
+                                    <span class="text-ink/60 w-20">Tête:</span>
+                                    <span>${product.notes.top}</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <span class="text-ink/60 w-20">Cœur:</span>
+                                    <span>${product.notes.heart}</span>
+                                </div>
+                                <div class="flex gap-3">
+                                    <span class="text-ink/60 w-20">Fond:</span>
+                                    <span>${product.notes.base}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="border-t border-black/5 pt-6">
+                            <p class="text-sm text-ink/60 mb-2">Famille olfactive: <span class="text-ink">${product.family}</span></p>
+                        </div>
+                        
+                        <div class="flex gap-3 pt-4">
+                            <button 
+                                onclick="handleAddToCart('${product.slug}')"
+                                class="flex-1 rounded-md bg-ink px-6 py-3 text-white hover:bg-ink/90 transition-colors font-medium"
+                            >
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            updateCartCount();
+        });
+
+        function handleAddToCart(slug) {
+            addToCart(slug);
+            showToast('Produit ajouté au panier');
+        }
+    </script>
+</body>
+</html>
