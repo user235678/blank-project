@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Moderne JS + Tailwind</title>
+    <link href="./dist/output.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-sm border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <h1 class="text-xl font-bold text-gray-900">Mon App</h1>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+            <!-- Hero Section -->
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">
+                    Bienvenue dans votre application moderne
+                </h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Construite avec JavaScript et Tailwind CSS
+                </p>
+                <button id="cta-button" class="btn-primary text-lg px-8 py-3">
+                    Commencer
+                </button>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="card">
+                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Performance</h3>
+                    <p class="text-gray-600">Optimisé pour des performances maximales avec JavaScript moderne.</p>
+                </div>
+
+                <div class="card">
+                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Design</h3>
+                    <p class="text-gray-600">Interface utilisateur moderne et responsive avec Tailwind CSS.</p>
+                </div>
+
+                <div class="card">
+                    <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Modulaire</h3>
+                    <p class="text-gray-600">Architecture modulaire et maintenable avec des composants réutilisables.</p>
+                </div>
+            </div>
+
+            <!-- Interactive Section -->
+            <div class="card max-w-2xl mx-auto">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Zone Interactive</h3>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label for="user-input" class="block text-sm font-medium text-gray-700 mb-2">
+                            Votre message
+                        </label>
+                        <input 
+                            type="text" 
+                            id="user-input" 
+                            class="input-field" 
+                            placeholder="Tapez quelque chose..."
+                        >
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button id="add-message" class="btn-primary flex-1">
+                            Ajouter
+                        </button>
+                        <button id="clear-messages" class="btn-secondary">
+                            Effacer
+                        </button>
+                    </div>
+                    
+                    <div id="messages-container" class="space-y-2 max-h-64 overflow-y-auto">
+                        <!-- Messages will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white border-t border-gray-200 mt-16">
+            <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+                <div class="text-center text-gray-600">
+                    <p>&copy; 2024 Mon App. Construit avec ❤️ en JavaScript et Tailwind CSS.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script type="module" src="./src/main.js"></script>
+</body>
+</html>
