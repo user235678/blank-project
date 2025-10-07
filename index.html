@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <title>Netflix - Clone</title>
+    <meta name="description" content="Clone de la page d'accueil Netflix en HTML et CSS" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#" aria-label="Aller à l'accueil">NETFLIX</a>
+        <div class="header-actions">
+          <label class="visually-hidden" for="lang">Langue</label>
+          <select id="lang" class="select">
+            <option>Français</option>
+            <option>English</option>
+            <option>Español</option>
+          </select>
+          <a class="btn btn-ghost" href="#" role="button">S'identifier</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <h1 class="hero-title">Films, séries et bien plus en illimité.</h1>
+          <p class="hero-sub">Où que vous soyez. Annulez à tout moment.</p>
+          <p class="hero-cta">Prêt à regarder Netflix&nbsp;? Saisissez votre adresse e‑mail pour créer ou redémarrer votre abonnement.</p>
+          <form class="email-form" action="#" method="get" autocomplete="email">
+            <label class="visually-hidden" for="email">Adresse e‑mail</label>
+            <input id="email" name="email" type="email" inputmode="email" placeholder="Adresse e‑mail" required />
+            <button class="btn btn-primary" type="submit">Commencer > </button>
+          </form>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section class="feature">
+        <div class="container feature-grid">
+          <div class="feature-text">
+            <h2 class="feature-title">Profitez sur votre TV.</h2>
+            <p class="feature-desc">Regardez sur Smart TV, PlayStation, Xbox, Chromecast, Apple TV, lecteurs Blu‑ray et bien plus.</p>
+          </div>
+          <div class="feature-media">
+            <div class="media-box tv" role="img" aria-label="TV mockup"></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section class="feature">
+        <div class="container feature-grid reverse">
+          <div class="feature-text">
+            <h2 class="feature-title">Téléchargez vos séries pour les regarder hors connexion.</h2>
+            <p class="feature-desc">Enregistrez facilement vos favoris et ayez toujours quelque chose à regarder.</p>
+          </div>
+          <div class="feature-media">
+            <div class="media-box mobile" role="img" aria-label="Mobile download mockup"></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section class="feature">
+        <div class="container feature-grid">
+          <div class="feature-text">
+            <h2 class="feature-title">Où que vous soyez.</h2>
+            <p class="feature-desc">Regardez sur votre smartphone, tablette, ordinateur et TV sans frais supplémentaires.</p>
+          </div>
+          <div class="feature-media">
+            <div class="media-box devices" role="img" aria-label="Devices mockup"></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section class="feature">
+        <div class="container feature-grid reverse">
+          <div class="feature-text">
+            <h2 class="feature-title">Créez des profils pour les enfants.</h2>
+            <p class="feature-desc">Laissez les enfants vivre des aventures avec leurs personnages préférés dans un espace qui leur est destiné.</p>
+          </div>
+          <div class="feature-media">
+            <div class="media-box kids" role="img" aria-label="Kids profile mockup"></div>
+          </div>
+        </div>
+        <div class="divider"></div>
+      </section>
+
+      <section class="faq">
+        <div class="container">
+          <h2 class="faq-title">Foire aux questions</h2>
+
+          <details class="faq-item">
+            <summary>Netflix, qu'est‑ce que c'est&nbsp;?</summary>
+            <div class="faq-panel">
+              Netflix est un service de streaming proposant une vaste sélection de séries, films, animés, documentaires et plus sur des milliers d'appareils.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Combien coûte Netflix&nbsp;?</summary>
+            <div class="faq-panel">
+              Regardez Netflix sur votre smartphone, tablette, Smart TV, ordinateur ou appareil de streaming pour un tarif mensuel fixe. Sans frais supplémentaires.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Où puis‑je regarder&nbsp;?</summary>
+            <div class="faq-panel">
+              Regardez où vous voulez, quand vous voulez, sur un nombre illimité d'appareils.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Comment annuler&nbsp;?</summary>
+            <div class="faq-panel">
+              Netflix est flexible. Pas de contrats compliqués. Annulez en ligne en deux clics.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Que puis‑je regarder sur Netflix&nbsp;?</summary>
+            <div class="faq-panel">
+              Un large catalogue de longs métrages, documentaires, séries, animés originaux Netflix et plus encore.
+            </div>
+          </details>
+
+          <form class="email-form email-form--center" action="#" method="get" autocomplete="email">
+            <label class="visually-hidden" for="email-bottom">Adresse e‑mail</label>
+            <input id="email-bottom" name="email" type="email" inputmode="email" placeholder="Adresse e‑mail" required />
+            <button class="btn btn-primary" type="submit">Commencer > </button>
+          </form>
+        </div>
+        <div class="divider"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p class="footer-call">Des questions&nbsp;? Appelez le <a href="tel:+33123456789">01 23 45 67 89</a></p>
+        <div class="footer-links">
+          <a href="#">FAQ</a>
+          <a href="#">Centre d'aide</a>
+          <a href="#">Compte</a>
+          <a href="#">Presse</a>
+          <a href="#">Relations investisseurs</a>
+          <a href="#">Recrutement</a>
+          <a href="#">Cartes cadeaux</a>
+          <a href="#">Utiliser des cartes cadeaux</a>
+          <a href="#">Confidentialité</a>
+          <a href="#">Préférences de cookies</a>
+          <a href="#">Mentions légales</a>
+          <a href="#">Nous contacter</a>
+        </div>
+        <label class="visually-hidden" for="lang-footer">Langue</label>
+        <select id="lang-footer" class="select select--footer">
+          <option>Français</option>
+          <option>English</option>
+          <option>Español</option>
+        </select>
+        <p class="footer-note">Netflix France (clone d'exercice)</p>
+      </div>
+    </footer>
+  </body>
+</html>
